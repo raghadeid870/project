@@ -1,0 +1,35 @@
+Medi Reminder — Matte Gold + Expanded Demo Data
+
+This is a NEW project folder. Do not run commands from an older project folder.
+
+1) Extract this ZIP into Downloads. The folder should be:
+   medi-reminder-matte-gold-large-demo
+
+2) Open PowerShell inside the extracted folder:
+   cd "$HOME\Downloads\medi-reminder-matte-gold-large-demo"
+
+3) Confirm both commands return True:
+   Test-Path .\package.json
+   Test-Path .\client\public\medi-healthcare-atmosphere.webp
+
+4) Stop any older Medi Reminder server first (press Ctrl+C in its PowerShell window).
+
+5) Copy your previous settings if available:
+   Copy-Item "$HOME\Downloads\medi-reminder-clinic-background\server\.env" ".\server\.env" -Force
+   Open .\server\.env and set a NEW random JWT_SECRET (at least 32 characters).
+   Keep the .env file and secret private. MongoDB must be running and MONGO_URI valid.
+
+6) Install and start from THIS folder:
+   npm install
+   npm run dev
+
+7) Keep that PowerShell window open. Open http://localhost:5173 and sign in to your account.
+   On the dashboard, click «إضافة مجموعة تجريبية موسّعة».
+
+Dataset (subject to the app's 20-profile limit): up to 14 fictional family profiles,
+42 fictional reminder items, 28 future appointments, and about 1,680 sample dose-log
+entries covering 30 days. Repeated clicks do not duplicate existing demo records.
+
+All sample data is fictional and for display/testing only. It is not medical advice,
+medication instructions, a prescription, or a real appointment. Do not use it to
+manage real treatment.

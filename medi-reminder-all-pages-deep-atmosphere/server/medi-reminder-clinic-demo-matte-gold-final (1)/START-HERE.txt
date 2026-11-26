@@ -1,0 +1,34 @@
+Medi Reminder — Clinic Background + Demo Data
+
+This is a NEW project folder. Do not run commands from the old
+medi-reminder-pro-luxe-upgraded folder.
+
+1) Extract this ZIP into Downloads. The extracted folder should be:
+   medi-reminder-clinic-demo-data
+
+2) Open PowerShell inside the new folder:
+   cd "$HOME\Downloads\medi-reminder-clinic-demo-data"
+
+3) Confirm that you are in the right folder. BOTH commands should return True:
+   Test-Path .\package.json
+   Test-Path .\client\public\medi-healthcare-atmosphere.webp
+
+4) Stop the old server first (in its PowerShell window, press Ctrl+C).
+
+5) Copy your old MongoDB settings:
+   Copy-Item "$HOME\Downloads\medi-reminder-pro-luxe-upgraded\medi-reminder-pro-luxe-upgraded\server\.env" ".\server\.env" -Force
+   Open .\server\.env and make sure JWT_SECRET is a NEW random value of at least 32 characters.
+   Do not share the .env file or the secret.
+
+6) Install dependencies and start the project from THIS new folder:
+   npm install
+   npm run dev
+
+7) Open http://localhost:5173 and sign in with your existing account.
+   On the dashboard, click "إضافة بيانات تجريبية" to populate the app.
+
+The sample data is fictional and for display/testing only. It adds family profiles,
+reminders, appointments and a seven-day sample dose history to your signed-in account.
+It does not replace existing records. Each sample family profile is labelled
+"بيانات تجريبية" and can be deleted from the Family page; deleting that profile
+also removes its linked demo reminders, dose logs and appointments.

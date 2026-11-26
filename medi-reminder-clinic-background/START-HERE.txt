@@ -1,0 +1,30 @@
+Medi Reminder — Deep Atmosphere (all pages)
+
+IMPORTANT: This is a separate, updated project folder. Do not run npm from the old
+medi-reminder-pro-luxe-upgraded folder.
+
+1) Extract this ZIP into Downloads. It creates a folder named:
+   medi-reminder-all-pages-deep-atmosphere
+
+2) Open PowerShell and enter that exact folder:
+   cd "$HOME\Downloads\medi-reminder-all-pages-deep-atmosphere"
+
+3) Confirm this is the updated version:
+   Test-Path .\client\public\medi-healthcare-atmosphere.webp
+   Select-String -Path .\client\src\luxe.css -Pattern "Deep Photo Atmosphere"
+   The first command should return True; the second should show a matching line.
+
+4) Stop the old server first (in its PowerShell window, press Ctrl+C).
+
+5) Copy your previous server settings (this retains your MongoDB URI):
+   Copy-Item "$HOME\Downloads\medi-reminder-pro-luxe-upgraded\medi-reminder-pro-luxe-upgraded\server\.env" ".\server\.env" -Force
+   Then open .\server\.env and replace JWT_SECRET with a NEW random secret.
+
+6) Install and run from this new folder:
+   npm install
+   npm run dev
+
+7) Open http://localhost:5173 and press Ctrl+F5.
+
+The updated photo is stored locally at client/public/medi-healthcare-atmosphere.webp.
+The dark photo treatment is applied to the app background, route headers and login panel.
