@@ -17,7 +17,19 @@ if (!process.env.JWT_SECRET || process.env.JWT_SECRET.length < 32) {
 const app = express();
 
 app.use(helmet()); // headers أمان جاهزة
-app.use(cors({ origin: process.env.CLIENT_URL || 'http://localhost:5173' }));
+const allowedOrigins = [
+  'https://project-rho-jet-61.vercel.app',
+  'http://localhost:5173'
+];
+
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin.trim())) {
+      return callback(null, true);
+    }
+    return callback(new Error('Not allowed by CORS'));
+  }
+}));
 app.use(express.json({ limit: '10kb' })); // نحدد حجم الطلب
 
 // rate limiting على الدخول والتسجيل عشان نصعّب تخمين كلمات السر
